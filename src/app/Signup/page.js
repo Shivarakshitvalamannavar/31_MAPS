@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "@/components/button/button";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [username, setUsername] = useState("");
@@ -9,7 +10,7 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-
+  const router=useRouter();
   // Handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +33,9 @@ export default function SignupPage() {
     const result = await response.json();
 
     if (response.ok) {
-      setMessage(result.message);
+      setMessage(result.message);      
+      // Redirect to home page or dashboard after successful registration 
+      router.push('/Login'); // Redirect to homepage or wherever you want
     } else {
       setError(result.message);
     }
