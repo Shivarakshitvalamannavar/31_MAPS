@@ -8,6 +8,7 @@ export default function Home() {
       <p>This is the home page mate lol </p>
       <Button text={"Click to sign up"} onClick={()=>router.push("/Signup")}/>
       <Button text={"Login"} onClick={()=>router.push("/Login")}/>
+      <Button text={"Testing"} onClick={()=>router.push("/Testing")}/>
     </div>
   );
 }
